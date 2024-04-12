@@ -1,0 +1,24 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@novu/echo": "^0.0.1-alpha.16",
+    "@vue-email/compiler": "^0.8.14",
+    "nuxt": "^3.11.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "vue": "^3.4.21",
+    "vue-email": "^0.8.11",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vue-email/nuxt": "^0.8.19"
+  }
+}
