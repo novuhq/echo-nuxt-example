@@ -1,5 +1,5 @@
 import { config } from '@vue-email/compiler'
-import { Echo } from '@novu/echo';
+import { Client, workflow } from '@novu/framework';
 
 const vueEmail = config('templates', {
   verbose: false,
@@ -7,15 +7,15 @@ const vueEmail = config('templates', {
   },
 })
 
-export const echo = new Echo({
+export const client = new Client({
   /**
-   * Enable this flag only during local development
-   * For production this should be false
+   * Disable this flag only during local development
+   * For production this should be true
    */
-  devModeBypassAuthentication: true
+  strictAuthentication: process.env.NODE_ENV !== 'development'
 });
 
-echo.workflow('hello-world', async ({ step, subscriber  }) => {
+export const emailWorkflow = workflow('hello-world', async ({ step, subscriber  }) => {
   await step.email('send-email', async (inputs) => {
     const template = await vueEmail.render('email.vue', {
       props: inputs
